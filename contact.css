@@ -22,7 +22,7 @@ body {
 }
 
 #email a:hover{
-    color: red;
+    color: darkgreen;
     text-decoration: line-through;
 }
 .square-container {
