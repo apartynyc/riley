@@ -30,3 +30,6 @@ body {
     height: 50px;
     background-color: black;
 }
+.square-container:hover{
+    background-color: darkgreen;
+}
