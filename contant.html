@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>wiley</title>
-    
-		<link rel="stylesheet" href="contact.css">
-	</head>
-	<body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wiley</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        #email {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #email a {
+            text-decoration: none;
+            color: black;
+            font-size: 30px;
+        }
+
+        #email a:hover {
+            color: darkgreen;
+            text-decoration: line-through;
+        }
+
+        .square-container {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+
+        .square-container:hover {
+            background-color: darkgreen;
+        }
+        @media  (max-width: 626px) {
+            #email a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        } 
+        }
+    </style>
+</head>
+<body>
     <div id="email">
         <a href="mailto:rschmedeman@gmail.com">rschmedeman@gmail.com</a>
     </div>
-        <a href="index.html"><div class="square-container"></div></a>
-    </div>
-  
-	</body>
+    <a href="index.html">
+        <div class="square-container"></div>
+    </a>
+</body>
 </html>
