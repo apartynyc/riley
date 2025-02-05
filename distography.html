@@ -4,42 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Cover Gallery</title>
-   <link rel="stylesheet" href="distography.css">
-    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: nimbussans;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .square-container {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            z-index: 10000;
+        }
+
+        .square-container:hover {
+            background-color: darkgreen;
+        }
+
+        .gallery-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 80px 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: start; /* Aligns items to start of grid cell */
+        }
+
+        .album {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            width: 100%; /* Makes each album take full width of its grid cell */
+        }
+
+        .album:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+        }
+
+        .album-info {
+            margin-top: 10px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .album-title {
+            text-align: left;
+            margin-right: 100px;
+            line-height: 1;
+        }
+
+        .album-role {
+            text-align: left;
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 4px;
+            font-family: nimbusmono;
+        }
+
+        .album-artist {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.9em;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 15px;
+            }
+            .album-title {
+                font-size: 0.8em;
+            }
+            .album-role {
+                font-size: 0.7em;
+            }
+            .album-artist {
+                font-size: 0.7em;
+            }
+        }
+
+        @font-face {
+            font-family: nimbus;
+            src: url(Nimbus\ Roman\ No9\ L\ Regular\ U.ttf);
+        }
+        @font-face {
+            font-family: nimbusmono;
+            src: url(Nimbus\ Mono\ L\ Regular\ U.ttf);
+        }
+        @font-face {
+            font-family: nimbussans;
+            src: url(Nimbus\ Sans\ L\ Regular\ U.ttf);
+        }
+    </style>
 </head>
 <body>
     <div class="page-container">
-        
-<a href="index.html"><div class="square-container"></div></a>
-       
-<div class="gallery-container">
-    <div class="gallery">
-        <div class="album">
-            <a href="https://open.spotify.com/album/5BeuFOV8IK3YurXQxcwymp?si=23ks05pVRj2w2VK64R9TOA"><img src="album/1.jpeg" alt="Album 1"></a>
-            <div class="album-title">Half Birthday</div>
-        </div>
-        <div class="album">
-            <a href="https://open.spotify.com/album/0Z9B75JEWyjHWwaHFfi7wF?si=2kJnsjX0QfmkB0ByKCHw5Q"><img src="album/2.jpeg" alt="Album 2"></a>
-            <div class="album-title">Songs for Stella</div>
-        </div>
-        <div class="album">
-            <a href="https://open.spotify.com/album/0LvTiZWBiEUHuuEEH02ufy?si=TrvoDCLZQ96uRBiNsYjIQw"><img src="album/3.jpeg" alt="Album 3"></a>
-            <div class="album-title">The Lonestar</div>
-        </div>
-        <div class="album">
-            <a href="https://open.spotify.com/album/4J1uy0ZnRc8akgrLtBxkSQ?si=ul1OB20IRrGcZjDnSE7TMw"><img src="album/4.jpeg" alt="Album 4"></a>
-            <div class="album-title">Someone I Trust</div>
-        </div>
-        <div class="album">
-            <a href="https://open.spotify.com/album/00SGdqaXJIwiJ0U3F7xSpZ?si=9E2MVhVwT8m_EtkO-F2NRA"><img src="album/5.jpeg" alt="Album 5"></a>
-            <div class="album-title">Standoff at a Yellow Light</div>
-        </div>
-        <div class="album">
-            <a href="https://open.spotify.com/album/5l3KPim9rTPGfOBGsXI7eD?si=Fb7D9mZSQO-8ZCcANSeEhw"><img src="album/6.jpeg" alt="Album 6"></a>
-            <div class="album-title">Im Leaving California but its no Big Deal</div>
+        <a href="index.html"><div class="square-container"></div></a>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="album">
+                    <a href="https://open.spotify.com/album/5BeuFOV8IK3YurXQxcwymp?si=23ks05pVRj2w2VK64R9TOA">
+                        <img src="album/1.jpeg" alt="Album 1">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">Half Birthday</div>
+                        <div class="album-role">Producer</div>
+                        <div class="album-artist">Passenger Princess</div>
+                    </div>
+                </div>
+                <!-- Repeat for other albums... -->
+                <!-- Album 2 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/0Z9B75JEWyjHWwaHFfi7wF?si=2kJnsjX0QfmkB0ByKCHw5Q">
+                        <img src="album/2.jpeg" alt="Album 2">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">Songs for Stella</div>
+                        <div class="album-role">Producer</div>
+                        <div class="album-artist">Addie Alaimo</div>
+                    </div>
+                </div>
+                <!-- Album 3 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/0LvTiZWBiEUHuuEEH02ufy?si=TrvoDCLZQ96uRBiNsYjIQw">
+                        <img src="album/3.jpeg" alt="Album 3">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">The Lonestar</div>
+                        <div class="album-role">Songwriter/Producer</div>
+                        <div class="album-artist">Swandive</div>
+                    </div>
+                </div>
+                <!-- Album 4 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/4J1uy0ZnRc8akgrLtBxkSQ?si=ul1OB20IRrGcZjDnSE7TMw">
+                        <img src="album/4.jpeg" alt="Album 4">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">Someone I Trust</div>
+                        <div class="album-role">Producer</div>
+                        <div class="album-artist">Inky Scratches</div>
+                    </div>
+                </div>
+                <!-- Album 5 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/00SGdqaXJIwiJ0U3F7xSpZ?si=9E2MVhVwT8m_EtkO-F2NRA">
+                        <img src="album/5.jpeg" alt="Album 5">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">Standoff at a Yellow Light</div>
+                        <div class="album-role">Songwriter/Producer</div>
+                        <div class="album-artist">Swandive</div>
+                    </div>
+                </div>
+                <!-- Album 6 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/5l3KPim9rTPGfOBGsXI7eD?si=Fb7D9mZSQO-8ZCcANSeEhw">
+                        <img src="album/6.jpeg" alt="Album 6">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">I'm Leaving California But Its No Big Deal</div>
+                        <div class="album-role">Producer</div>
+                        <div class="album-artist">Addie Alaimo</div>
+                    </div>
+                </div>
+                <!-- Album 7 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/album/47rrkmrGLkl3HStAzulAdv">
+                        <img src="album/7.JPG" alt="Album 7">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">A For Album</div>
+                        <div class="album-role">Producer</div>
+                        <div class="album-artist">Addie Alaimo</div>
+                    </div>
+                </div>
+                <!-- Album 8 -->
+                <div class="album">
+                    <a href="https://open.spotify.com/track/1YQnyI2wLHUhY9sjholGY7">
+                        <img src="album/8.JPG" alt="Album 8">
+                    </a>
+                    <div class="album-info">
+                        <div class="album-title">Pretend</div>
+                        <div class="album-role">Bassist</div>
+                        <div class="album-artist">Globe</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 </body>
 </html>

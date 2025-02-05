@@ -30,7 +30,7 @@
 
 /* Common styles for all screen sizes */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: nimbussans;
     color: black;
     z-index: 1000;
 }
@@ -81,4 +81,12 @@ iframe {
 
 .heading h1 {
     font-weight: bold;
+}
+@font-face {
+    font-family: nimbussans;
+    src: url(Nimbus\ Sans\ L\ Regular\ U.ttf);
+}
+@font-face {
+    font-family: nimbusbold;
+    src: url(Nimbus\ Sans\ L\ Bold\ U.ttf);
 }

@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: nimbus;
 }
 .page-container {
     display: flex;
@@ -56,7 +56,7 @@ body, html {
 }
 .album-title {
     margin-top: 10px;
-    font-weight: bold;
+    
 }
 @media (max-width: 600px) {
     .gallery {
@@ -67,7 +67,10 @@ body, html {
         font-size: 0.8em;
     }
 }
-
+@font-face {
+    font-family: nimbus;
+    src: url(Nimbus\ Roman\ No9\ L\ Regular\ U.ttf);
+}
 
 
 

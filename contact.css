@@ -3,7 +3,7 @@
 				padding: 0;
 				height: 100%;
 				width: 100%;
-				font-family: Arial, sans-serif;
+				font-family: nimbusans;
 			}
 
 			#email {
@@ -36,4 +36,8 @@
 
 			.square-container:hover {
 				background-color: darkgreen;
+			}
+			@font-face {
+				font-family: nimbussans;
+				src: url(Nimbus\ Sans\ L\ Regular\ U.ttf);
 			}
